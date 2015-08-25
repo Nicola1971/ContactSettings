@@ -34,8 +34,8 @@ foreach($settingsArr as $key => $st_row){
     $custom_st_label = trim($st_label_arr[0]);
     $custom_st_name = isset($st_label_arr[1]) ? $st_label_arr[1] : 'custom_st';
     $custom_st_value = isset($st_label_arr[1]) && isset($modx->config[$st_label_arr[1]]) ? trim($modx->config[$st_label_arr[1]]) : '';
- $output .= '<tr><td class="warning" nowrap="">'.$custom_st_label.'</td>
-        <td><input type="text" value="'.$custom_st_value.'" name="'.$custom_st_name.'" style="width: 350px;" onchange="documentDirty=true;" /></td><td>placeholder: [('.$custom_st_name.')]</td></tr><tr><td colspan="2"><div class="split"/></td></tr>';
+ $output .= '<tr><td class="warning" nowrap="">'.htmlspecialchars($custom_st_label).'</td>
+        <td><input type="text" value="'.htmlspecialchars($custom_st_value).'" name="'.htmlspecialchars($custom_st_name).'" style="width: 350px;" onchange="documentDirty=true;" /></td><td>placeholder: [('.$custom_st_name.')]</td></tr><tr><td colspan="2"><div class="split"/></td></tr>';
 }
 $output .= '</tbody></table>';
 }
